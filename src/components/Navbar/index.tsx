@@ -2,7 +2,7 @@ import { Navbar, Text } from '@nextui-org/react';
 
 export const NavbarComponent = () => (
   <Navbar isBordered variant={'floating'}>
-    <Navbar.Content hideIn="xs">
+    <Navbar.Content hideIn="xs" variant="underline-rounded">
       <Navbar.Link href="#">Features</Navbar.Link>
       <Navbar.Link isActive href="#">
         Customers
