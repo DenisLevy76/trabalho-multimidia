@@ -1,7 +1,6 @@
 import { styled } from '@nextui-org/react';
 
 export const ContainerComponent = styled('div', {
-  maxWidth: 1400,
+  width: 1400,
   margin: '0 auto',
-  padding: '$12',
 });

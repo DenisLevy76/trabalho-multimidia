@@ -23,8 +23,8 @@ export default function Home() {
               <br />o mundo da tecnologia.
             </HeroTitle>
             <Text size="$xl">
-              Artigos gratuitos sobre assustos pouco falados no mundo da
-              tecnologia.
+              Artigos gratuitos sobre assustos do curso de ciência da
+              computação.
             </Text>
           </HeroSectionText>
           <Image

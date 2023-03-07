@@ -5,6 +5,7 @@ export const ArticlesList = styled('ol', {
   gridTemplateColumns: '1fr 1fr 1fr',
   listStyle: 'none',
   gap: '$6',
+  margin: 0,
 
   '@media (max-width: 900px)': {
     gridTemplateColumns: '1fr 1fr',

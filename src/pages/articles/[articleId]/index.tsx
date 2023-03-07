@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeHighlight from 'rehype-highlight';
-import { ArticleContainer } from '../[articleId]/styles';
+import { ArticleContainer } from './_styles';
 
 export default function Home() {
   return (

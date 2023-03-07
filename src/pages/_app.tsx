@@ -1,4 +1,5 @@
 import { NextUIProvider, createTheme } from '@nextui-org/react';
+import { Footer } from '../components/Footer';
 import { NavbarComponent } from '../components/Navbar';
 
 const darkTheme = createTheme({
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }) {
       >
         <NavbarComponent />
         <Component {...pageProps} />
+        <Footer />
       </div>
     </NextUIProvider>
   );

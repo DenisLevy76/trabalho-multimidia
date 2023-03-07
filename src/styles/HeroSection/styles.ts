@@ -3,7 +3,7 @@ import { Text } from '@nextui-org/react';
 
 export const MainContent = styled('main', {
   backgroundImage: 'url(/backgroundhero.svg)',
-  height: '100vh',
+  minHeight: '100vh',
   backgroundPosition: 'top center',
   backgroundRepeat: 'no-repeat',
 });
