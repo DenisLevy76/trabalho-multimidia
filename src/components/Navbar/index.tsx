@@ -1,4 +1,5 @@
 import { Navbar, Text } from '@nextui-org/react';
+import Image from 'next/image';
 
 export const NavbarComponent = () => (
   <Navbar isBordered variant={'floating'}>
@@ -11,9 +12,14 @@ export const NavbarComponent = () => (
       <Navbar.Link href="/about">Sobre</Navbar.Link>
     </Navbar.Content>
     <Navbar.Brand>
-      <Text b color="inherit" hideIn="xs">
-        UNAMA
-      </Text>
+      <a href="https://www.unama.br/" target="_blank" rel="noopener noreferrer">
+        <Image
+          src="/unama2.svg"
+          alt="Logo marca UNAMA"
+          width={142}
+          height={42}
+        />
+      </a>
     </Navbar.Brand>
   </Navbar>
 );
