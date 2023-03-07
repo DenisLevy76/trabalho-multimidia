@@ -13,7 +13,7 @@ export const ArticleComponent: React.FC<ArticleComponentProps> = ({
   img,
   title,
 }) => (
-  <Link href={`/posts/1`}>
+  <Link href={`/articles/1`}>
     <Card isPressable>
       <Card.Body css={{ p: 0 }}>
         {!!img && (

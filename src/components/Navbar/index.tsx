@@ -3,12 +3,12 @@ import { Navbar, Text } from '@nextui-org/react';
 export const NavbarComponent = () => (
   <Navbar isBordered variant={'floating'}>
     <Navbar.Content hideIn="xs" variant="underline-rounded">
-      <Navbar.Link href="#">Features</Navbar.Link>
-      <Navbar.Link isActive href="#">
-        Customers
+      <Navbar.Link isActive href="/">
+        Inicio
       </Navbar.Link>
-      <Navbar.Link href="#">Pricing</Navbar.Link>
-      <Navbar.Link href="#">Company</Navbar.Link>
+      <Navbar.Link href="/articles">Artigos</Navbar.Link>
+      <Navbar.Link href="/categories">Categorias</Navbar.Link>
+      <Navbar.Link href="/about">Sobre</Navbar.Link>
     </Navbar.Content>
     <Navbar.Brand>
       <Text b color="inherit" hideIn="xs">

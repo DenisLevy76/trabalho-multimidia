@@ -40,7 +40,7 @@ export default function Home() {
             <Text h3 size="$2xl" weight="bold">
               Ultimos artigos
             </Text>
-            <Link href="/posts">Ver todos</Link>
+            <Link href="/articles">Ver todos</Link>
           </header>
           <ArticlesList>
             <li>

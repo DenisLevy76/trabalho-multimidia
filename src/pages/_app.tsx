@@ -7,12 +7,19 @@ const darkTheme = createTheme({
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
-      <NextUIProvider theme={darkTheme}>
+    <NextUIProvider theme={darkTheme}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100vh',
+          minWidth: '100%',
+        }}
+      >
         <NavbarComponent />
         <Component {...pageProps} />
-      </NextUIProvider>
-    </div>
+      </div>
+    </NextUIProvider>
   );
 }
 
