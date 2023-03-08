@@ -27,11 +27,9 @@ export default function Home() {
               computação.
             </Text>
           </HeroSectionText>
-          <Image
+          <img
             src="/illustration4.svg"
             alt="Homem em pé com um notebook na mão"
-            width={668}
-            height={668}
             title="Illustration by storyset.com by Freepik "
           />
         </HeroSection>
@@ -46,7 +44,79 @@ export default function Home() {
             <li>
               <ArticleComponent
                 img={'https://nextui.org' + '/images/fruit-1.jpeg'}
-                title={'What is First Come First Serve Method?'}
+                title={
+                  'What is First Come First Serve Method? What is First Come First Serve Method?What is First Come First Serve Method?'
+                }
+                description={`First Come First Serve (FCFS) is an operating system scheduling
+                algorithm that automatically executes queued requests and processes in
+                order of their arrival. It is the easiest and simplest CPU scheduling
+                algorithm. In this type of algorithm, processes which requests the CPU
+                first get the CPU allocation first. This is managed with a FIFO queue.
+                The full form of FCFS is First Come First Serve.`}
+              />
+            </li>
+            <li>
+              <ArticleComponent
+                img={'https://nextui.org' + '/images/fruit-1.jpeg'}
+                title={
+                  'What is First Come First Serve Method? What is First Come First Serve Method?What is First Come First Serve Method?'
+                }
+                description={`First Come First Serve (FCFS) is an operating system scheduling
+                algorithm that automatically executes queued requests and processes in
+                order of their arrival. It is the easiest and simplest CPU scheduling
+                algorithm. In this type of algorithm, processes which requests the CPU
+                first get the CPU allocation first. This is managed with a FIFO queue.
+                The full form of FCFS is First Come First Serve.`}
+              />
+            </li>
+            <li>
+              <ArticleComponent
+                img={'https://nextui.org' + '/images/fruit-1.jpeg'}
+                title={
+                  'What is First Come First Serve Method? What is First Come First Serve Method?What is First Come First Serve Method?'
+                }
+                description={`First Come First Serve (FCFS) is an operating system scheduling
+                algorithm that automatically executes queued requests and processes in
+                order of their arrival. It is the easiest and simplest CPU scheduling
+                algorithm. In this type of algorithm, processes which requests the CPU
+                first get the CPU allocation first. This is managed with a FIFO queue.
+                The full form of FCFS is First Come First Serve.`}
+              />
+            </li>
+            <li>
+              <ArticleComponent
+                img={'https://nextui.org' + '/images/fruit-1.jpeg'}
+                title={
+                  'What is First Come First Serve Method? What is First Come First Serve Method?What is First Come First Serve Method?'
+                }
+                description={`First Come First Serve (FCFS) is an operating system scheduling
+                algorithm that automatically executes queued requests and processes in
+                order of their arrival. It is the easiest and simplest CPU scheduling
+                algorithm. In this type of algorithm, processes which requests the CPU
+                first get the CPU allocation first. This is managed with a FIFO queue.
+                The full form of FCFS is First Come First Serve.`}
+              />
+            </li>
+            <li>
+              <ArticleComponent
+                img={'https://nextui.org' + '/images/fruit-1.jpeg'}
+                title={
+                  'What is First Come First Serve Method? What is First Come First Serve Method?What is First Come First Serve Method?'
+                }
+                description={`First Come First Serve (FCFS) is an operating system scheduling
+                algorithm that automatically executes queued requests and processes in
+                order of their arrival. It is the easiest and simplest CPU scheduling
+                algorithm. In this type of algorithm, processes which requests the CPU
+                first get the CPU allocation first. This is managed with a FIFO queue.
+                The full form of FCFS is First Come First Serve.`}
+              />
+            </li>
+            <li>
+              <ArticleComponent
+                img={'https://nextui.org' + '/images/fruit-1.jpeg'}
+                title={
+                  'What is First Come First Serve Method? What is First Come First Serve Method?What is First Come First Serve Method?'
+                }
                 description={`First Come First Serve (FCFS) is an operating system scheduling
                 algorithm that automatically executes queued requests and processes in
                 order of their arrival. It is the easiest and simplest CPU scheduling

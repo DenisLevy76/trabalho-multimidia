@@ -1,8 +1,11 @@
 import { Navbar, Text } from '@nextui-org/react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { ToggleButton } from '../Navbar/styles';
 
 export const NavbarComponent = () => (
-  <Navbar isBordered variant={'floating'}>
+  <Navbar shouldHideOnScroll isBordered variant={'floating'}>
+    <ToggleButton className="toggle" aria-label="toggle navigation" />
     <Navbar.Content hideIn="xs" variant="underline-rounded">
       <Navbar.Link isActive href="/">
         Inicio
@@ -21,5 +24,55 @@ export const NavbarComponent = () => (
         />
       </a>
     </Navbar.Brand>
+    <Navbar.Collapse>
+      <Navbar.CollapseItem>
+        <Link
+          color="inherit"
+          style={{
+            minWidth: '100%',
+            color: 'white',
+          }}
+          href="/"
+        >
+          Inicio
+        </Link>
+      </Navbar.CollapseItem>
+      <Navbar.CollapseItem>
+        <Link
+          color="inherit"
+          style={{
+            minWidth: '100%',
+            color: 'white',
+          }}
+          href="/articles"
+        >
+          Artigos
+        </Link>
+      </Navbar.CollapseItem>
+      <Navbar.CollapseItem>
+        <Link
+          color="inherit"
+          style={{
+            minWidth: '100%',
+            color: 'white',
+          }}
+          href="/categories"
+        >
+          Categorias
+        </Link>
+      </Navbar.CollapseItem>
+      <Navbar.CollapseItem>
+        <Link
+          color="inherit"
+          style={{
+            minWidth: '100%',
+            color: 'white',
+          }}
+          href="/about"
+        >
+          Sobre
+        </Link>
+      </Navbar.CollapseItem>
+    </Navbar.Collapse>
   </Navbar>
 );

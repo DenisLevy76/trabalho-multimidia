@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
           flexDirection: 'column',
           minHeight: '100vh',
           minWidth: '100%',
+          position: 'relative',
         }}
       >
         <NavbarComponent />

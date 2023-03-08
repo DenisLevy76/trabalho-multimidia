@@ -16,6 +16,13 @@ export const ArticleDescription = styled(Text, {
   '-webkit-box-orient': 'vertical',
   overflow: 'hidden',
   'text-overflow': 'ellipsis',
-  height: 98,
+  height: 112,
   width: '100%',
+});
+
+export const ArticleMetadata = styled('div', {
+  display: 'flex',
+  gap: '1rem',
+  width: '100%',
+  marginTop: '0.5rem',
 });

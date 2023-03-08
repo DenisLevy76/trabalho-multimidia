@@ -8,11 +8,12 @@ import { ArticleContainer } from './_styles';
 export default function Home() {
   return (
     <ArticleContainer>
-      <ContainerComponent>
+      <ContainerComponent className="container">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw, rehypeHighlight]}
         >{`
+![My image](https://nextui.org/images/fruit-1.jpeg)
 ## Overview
 * Follows [CommonMark](https://commonmark.org)
 * Optionally follows [GitHub Flavored Markdown](https://github.github.com/gfm/)
@@ -23,6 +24,9 @@ export default function Home() {
 Here is an example of a plugin in action
 (['remark-toc'](https://github.com/remarkjs/remark-toc)).
 This section is replaced by an actual table of contents.
+
+![My image](https://nextui.org/images/fruit-1.jpeg)
+
 ## Syntax highlighting
 Here is an example of a plugin to highlight code:
 ['rehype-highlight'](https://github.com/rehypejs/rehype-highlight).

@@ -12,6 +12,15 @@ export const HeroSection = styled('section', {
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
   textAlign: 'left',
+
+  '@media (max-width: 1400px)': {
+    gridTemplateColumns: '1fr',
+    textAlign: 'center',
+
+    img: {
+      display: 'none',
+    },
+  },
 });
 
 export const HeroSectionText = styled('article', {

@@ -4,14 +4,14 @@ export const ArticlesList = styled('ol', {
   display: 'grid',
   gridTemplateColumns: '1fr 1fr 1fr',
   listStyle: 'none',
-  gap: '$6',
+  gap: '$12',
   margin: 0,
 
-  '@media (max-width: 900px)': {
+  '@media (max-width: 1280px)': {
     gridTemplateColumns: '1fr 1fr',
   },
 
-  '@media (max-width: 450px)': {
+  '@media (max-width: 720px)': {
     gridTemplateColumns: '1fr',
   },
 });
