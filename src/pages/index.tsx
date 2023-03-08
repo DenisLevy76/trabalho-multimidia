@@ -27,9 +27,11 @@ export default function Home() {
               computação.
             </Text>
           </HeroSectionText>
-          <img
+          <Image
             src="/illustration4.svg"
             alt="Homem em pé com um notebook na mão"
+            width={668}
+            height={668}
             title="Illustration by storyset.com by Freepik "
           />
         </HeroSection>

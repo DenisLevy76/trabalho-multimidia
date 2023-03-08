@@ -7,12 +7,18 @@ export const NavbarComponent = () => (
   <Navbar shouldHideOnScroll isBordered variant={'floating'}>
     <ToggleButton className="toggle" aria-label="toggle navigation" />
     <Navbar.Content hideIn="xs" variant="underline-rounded">
-      <Navbar.Link isActive href="/">
+      <Navbar.Link as={Link} isActive href="/">
         Inicio
       </Navbar.Link>
-      <Navbar.Link href="/articles">Artigos</Navbar.Link>
-      <Navbar.Link href="/categories">Categorias</Navbar.Link>
-      <Navbar.Link href="/about">Sobre</Navbar.Link>
+      <Navbar.Link as={Link} href="/articles">
+        Artigos
+      </Navbar.Link>
+      <Navbar.Link as={Link} href="/categories">
+        Categorias
+      </Navbar.Link>
+      <Navbar.Link as={Link} href="/about">
+        Sobre
+      </Navbar.Link>
     </Navbar.Content>
     <Navbar.Brand>
       <a href="https://www.unama.br/" target="_blank" rel="noopener noreferrer">
