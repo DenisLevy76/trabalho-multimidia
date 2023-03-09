@@ -13,7 +13,7 @@ export const HeroSection = styled('section', {
   gridTemplateColumns: '1fr 1fr',
   textAlign: 'left',
 
-  '@media (max-width: 1400px)': {
+  '@media (max-width: 850px)': {
     gridTemplateColumns: '1fr',
     textAlign: 'center',
 
