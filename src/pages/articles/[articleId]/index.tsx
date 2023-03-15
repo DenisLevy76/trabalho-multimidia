@@ -1,38 +1,62 @@
-import { ContainerComponent } from '../../../components/container';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
-import rehypeHighlight from 'rehype-highlight';
-import { ArticleContainer } from './_styles';
+import { ArticleContainer, ArticleWrapper } from './_styles'
+import { useEffect, useState } from 'react'
+import { Text } from '@nextui-org/react'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { ghostAPI } from '../../../lib/axios'
+
+export interface IPost {
+  uuid: string
+  title: string
+  html: string
+  feature_image: string
+  feature_image_alt: string
+}
 
 export default function Home() {
+  const router = useRouter()
+  const { articleId } = router.query
+
+  const [post, setPost] = useState<IPost | null>(null)
+  const stripHTMLRegex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi
+  const postHTML = post ? post.html.replace(stripHTMLRegex, '') : ''
+
+  const getPost = async () => {
+    try {
+      const { data } = await ghostAPI.get<{ posts: IPost[] }>(
+        `/posts/slug/${articleId}`
+      )
+
+      if (data.posts.length > 0) setPost(data.posts[0])
+    } catch (error) {
+      router.replace('/404')
+    }
+  }
+
+  useEffect(() => {
+    if (articleId) getPost()
+  }, [articleId])
+
   return (
     <ArticleContainer>
-      <ContainerComponent className="container">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw, rehypeHighlight]}
-        >{`
-![My image](https://nextui.org/images/fruit-1.jpeg)
-## Overview
-* Follows [CommonMark](https://commonmark.org)
-* Optionally follows [GitHub Flavored Markdown](https://github.github.com/gfm/)
-* Renders actual React elements instead of using 'dangerouslySetInnerHTML'
-* Lets you define your own components (to render 'MyHeading' instead of 'h1')
-* Has a lot of plugins
-## Table of contents
-Here is an example of a plugin in action
-(['remark-toc'](https://github.com/remarkjs/remark-toc)).
-This section is replaced by an actual table of contents.
-
-![My image](https://nextui.org/images/fruit-1.jpeg)
-
-## Syntax highlighting
-Here is an example of a plugin to highlight code:
-['rehype-highlight'](https://github.com/rehypejs/rehype-highlight).
-Here is some JavaScript code:
-`}</ReactMarkdown>
-      </ContainerComponent>
+      {post && (
+        <Image
+          src={post.feature_image}
+          alt={post.feature_image_alt}
+          width={1980}
+          height={1080}
+          quality={100}
+          className='banner'
+        />
+      )}
+      <ArticleWrapper className='container'>
+        {post && (
+          <>
+            <Text as='h1'>{post.title}</Text>
+            <article dangerouslySetInnerHTML={{ __html: postHTML }}></article>
+          </>
+        )}
+      </ArticleWrapper>
     </ArticleContainer>
-  );
+  )
 }
