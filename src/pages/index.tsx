@@ -1,135 +1,82 @@
-import { Text } from '@nextui-org/react';
-import { ContainerComponent } from '../components/container';
+import { Text } from '@nextui-org/react'
+import { ContainerComponent } from '../components/container'
 import {
   HeroSection,
   HeroSectionText,
   HeroTitle,
   LastArticles,
   MainContent,
-} from '../styles/HeroSection/styles';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArticlesList } from '../components/ArticlesList';
-import { ArticleComponent } from '../components/Article';
+} from '../styles/HeroSection/styles'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ArticlesList } from '../components/ArticlesList'
+import { ArticleComponent } from '../components/Article'
+import { ghostAPI } from '../lib/axios'
+import { useEffect, useState } from 'react'
+import { IPost } from '../@types/IPost'
 
 export default function Home() {
+  const [posts, setPosts] = useState<IPost[] | null>(null)
+  const getPosts = async () => {
+    const { data } = await ghostAPI.get('/posts', {
+      params: {
+        include: 'authors,tags',
+      },
+    })
+    setPosts(data.posts)
+    console.log(data.posts)
+  }
+
+  useEffect(() => {
+    getPosts()
+  }, [])
   return (
     <MainContent>
       <ContainerComponent>
         <HeroSection>
           <HeroSectionText>
-            <HeroTitle h1 size="$6xl" weight="bold">
+            <HeroTitle
+              h1
+              size='$6xl'
+              weight='bold'
+            >
               Aprenda sobre
               <br />o mundo da tecnologia.
             </HeroTitle>
-            <Text size="$xl">
+            <Text size='$xl'>
               Artigos gratuitos sobre assustos do curso de ciência da
               computação.
             </Text>
           </HeroSectionText>
           <Image
-            src="/illustration4.svg"
-            alt="Homem em pé com um notebook na mão"
+            src='/illustration4.svg'
+            alt='Homem em pé com um notebook na mão'
             width={668}
             height={668}
-            title="Illustration by storyset.com by Freepik "
+            title='Illustration by storyset.com by Freepik '
           />
         </HeroSection>
         <LastArticles>
           <header>
-            <Text h3 size="$2xl" weight="bold">
+            <Text
+              h3
+              size='$2xl'
+              weight='bold'
+            >
               Ultimos artigos
             </Text>
-            <Link href="/articles">Ver todos</Link>
+            <Link href='/articles'>Ver todos</Link>
           </header>
           <ArticlesList>
-            <li>
-              <ArticleComponent
-                img={'https://nextui.org' + '/images/fruit-1.jpeg'}
-                title={
-                  'What is First Come First Serve Method? What is First Come First Serve Method?What is First Come First Serve Method?'
-                }
-                description={`First Come First Serve (FCFS) is an operating system scheduling
-                algorithm that automatically executes queued requests and processes in
-                order of their arrival. It is the easiest and simplest CPU scheduling
-                algorithm. In this type of algorithm, processes which requests the CPU
-                first get the CPU allocation first. This is managed with a FIFO queue.
-                The full form of FCFS is First Come First Serve.`}
-              />
-            </li>
-            <li>
-              <ArticleComponent
-                img={'https://nextui.org' + '/images/fruit-1.jpeg'}
-                title={
-                  'What is First Come First Serve Method? What is First Come First Serve Method?What is First Come First Serve Method?'
-                }
-                description={`First Come First Serve (FCFS) is an operating system scheduling
-                algorithm that automatically executes queued requests and processes in
-                order of their arrival. It is the easiest and simplest CPU scheduling
-                algorithm. In this type of algorithm, processes which requests the CPU
-                first get the CPU allocation first. This is managed with a FIFO queue.
-                The full form of FCFS is First Come First Serve.`}
-              />
-            </li>
-            <li>
-              <ArticleComponent
-                img={'https://nextui.org' + '/images/fruit-1.jpeg'}
-                title={
-                  'What is First Come First Serve Method? What is First Come First Serve Method?What is First Come First Serve Method?'
-                }
-                description={`First Come First Serve (FCFS) is an operating system scheduling
-                algorithm that automatically executes queued requests and processes in
-                order of their arrival. It is the easiest and simplest CPU scheduling
-                algorithm. In this type of algorithm, processes which requests the CPU
-                first get the CPU allocation first. This is managed with a FIFO queue.
-                The full form of FCFS is First Come First Serve.`}
-              />
-            </li>
-            <li>
-              <ArticleComponent
-                img={'https://nextui.org' + '/images/fruit-1.jpeg'}
-                title={
-                  'What is First Come First Serve Method? What is First Come First Serve Method?What is First Come First Serve Method?'
-                }
-                description={`First Come First Serve (FCFS) is an operating system scheduling
-                algorithm that automatically executes queued requests and processes in
-                order of their arrival. It is the easiest and simplest CPU scheduling
-                algorithm. In this type of algorithm, processes which requests the CPU
-                first get the CPU allocation first. This is managed with a FIFO queue.
-                The full form of FCFS is First Come First Serve.`}
-              />
-            </li>
-            <li>
-              <ArticleComponent
-                img={'https://nextui.org' + '/images/fruit-1.jpeg'}
-                title={
-                  'What is First Come First Serve Method? What is First Come First Serve Method?What is First Come First Serve Method?'
-                }
-                description={`First Come First Serve (FCFS) is an operating system scheduling
-                algorithm that automatically executes queued requests and processes in
-                order of their arrival. It is the easiest and simplest CPU scheduling
-                algorithm. In this type of algorithm, processes which requests the CPU
-                first get the CPU allocation first. This is managed with a FIFO queue.
-                The full form of FCFS is First Come First Serve.`}
-              />
-            </li>
-            <li>
-              <ArticleComponent
-                img={'https://nextui.org' + '/images/fruit-1.jpeg'}
-                title={
-                  'What is First Come First Serve Method? What is First Come First Serve Method?What is First Come First Serve Method?'
-                }
-                description={`First Come First Serve (FCFS) is an operating system scheduling
-                algorithm that automatically executes queued requests and processes in
-                order of their arrival. It is the easiest and simplest CPU scheduling
-                algorithm. In this type of algorithm, processes which requests the CPU
-                first get the CPU allocation first. This is managed with a FIFO queue.
-                The full form of FCFS is First Come First Serve.`}
-              />
-            </li>
+            {posts &&
+              posts.map((post) => (
+                <li>
+                  <ArticleComponent post={post} />
+                </li>
+              ))}
           </ArticlesList>
         </LastArticles>
       </ContainerComponent>
     </MainContent>
-  );
+  )
 }

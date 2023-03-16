@@ -4,14 +4,7 @@ import { Text } from '@nextui-org/react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { ghostAPI } from '../../../lib/axios'
-
-export interface IPost {
-  uuid: string
-  title: string
-  html: string
-  feature_image: string
-  feature_image_alt: string
-}
+import { IPost } from '../../../@types/IPost'
 
 export default function Home() {
   const router = useRouter()
@@ -24,7 +17,12 @@ export default function Home() {
   const getPost = async () => {
     try {
       const { data } = await ghostAPI.get<{ posts: IPost[] }>(
-        `/posts/slug/${articleId}`
+        `/posts/slug/${articleId}`,
+        {
+          params: {
+            include: 'authors,tags',
+          },
+        }
       )
 
       if (data.posts.length > 0) setPost(data.posts[0])

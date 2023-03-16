@@ -1,10 +1,11 @@
-import { NextUIProvider, createTheme } from '@nextui-org/react';
-import { Footer } from '../components/Footer';
-import { NavbarComponent } from '../components/Navbar';
+import { NextUIProvider, createTheme } from '@nextui-org/react'
+import { Footer } from '../components/Footer'
+import { NavbarComponent } from '../components/Navbar'
+import '../lib/dayjs'
 
 const darkTheme = createTheme({
   type: 'dark', // it could be "light" or "dark"
-});
+})
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -23,7 +24,7 @@ function MyApp({ Component, pageProps }) {
         <Footer />
       </div>
     </NextUIProvider>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp
