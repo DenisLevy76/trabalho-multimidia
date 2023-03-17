@@ -41,6 +41,7 @@ export const LastArticles = styled('section', {
   display: 'flex',
   flexDirection: 'column',
   marginTop: '$12',
+  width: '100%',
 
   header: {
     display: 'flex',

@@ -18,13 +18,16 @@ import { IPost } from '../@types/IPost'
 export default function Home() {
   const [posts, setPosts] = useState<IPost[] | null>(null)
   const getPosts = async () => {
-    const { data } = await ghostAPI.get('/posts', {
-      params: {
-        include: 'authors,tags',
-      },
-    })
-    setPosts(data.posts)
-    console.log(data.posts)
+    try {
+      const { data } = await ghostAPI.get('/posts', {
+        params: {
+          include: 'authors,tags',
+        },
+      })
+      setPosts(data.posts)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   useEffect(() => {
